@@ -1,5 +1,10 @@
+import Header from "../Components/Header";
 function App() {
-  return <div>Myntra</div>;
+  return (
+    <>
+      <Header></Header>
+    </>
+  );
 }
 
 export default App;
