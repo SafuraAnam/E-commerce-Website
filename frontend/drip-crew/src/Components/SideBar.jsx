@@ -1,27 +1,42 @@
 import { LiaShoppingBagSolid } from "react-icons/lia";
-import { GiClothes } from "react-icons/gi"; // Custom icon for Myntra fwd
+import { useNavigate } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { FaUsers } from "react-icons/fa"; // For Drip Crew icon
-import { FaUserCircle } from "react-icons/fa"; // For User icon
+
 import { HiHashtag } from "react-icons/hi2";
+import productSource from "../assets/add-friend-icon.svg";
+import productSource2 from "../assets/myntra.svg";
 
 const SideBar = () => {
+  const navigate = useNavigate();
+
+  const handleRedirect = (path) => {
+    navigate(path);
+  };
+
   return (
     <>
       <div className="sidebar">
-        <div className="sidebar-option">
-          <img src="" alt="" />
-          <GiClothes size={24} />
+        <div className="sidebar-option" onClick={() => handleRedirect("/")}>
+          <img src={productSource2} size={24} />
+          {/* <GiClothes size={24} /> */}
           <span>fwd</span>
         </div>
         <div className="sidebar-option">
           <HiHashtag size={24} />
           <span>Trends</span>
         </div>
-        <div className="sidebar-option">
-          <FaUsers size={24} />
+        <div
+          className="sidebar-option"
+          type="button"
+          onClick={() => {
+            handleRedirect("/users");
+          }}
+        >
+          <img src={productSource} size={24} />
+          {/* <FaUsers size={24} /> */}
           <span>DripCrew</span>
         </div>
+
         <div className="sidebar-option">
           <LiaShoppingBagSolid size={24} />
           <span>Bag</span>

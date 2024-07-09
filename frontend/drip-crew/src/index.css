@@ -205,3 +205,8 @@
   width: 100%;
   height: 325px;
 }
+
+/*Chat.jsx styling*/
+.chat-wrapper {
+  display: flex;
+}
