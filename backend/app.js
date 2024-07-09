@@ -3,7 +3,8 @@ const app = express();
 
 app.get("/",(req,res)=>{
     res.send("hi");
-})
+});
+
 
 //Setting up the server at port 8080
 const port =8080;
