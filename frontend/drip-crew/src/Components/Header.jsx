@@ -1,13 +1,15 @@
+import React from "react";
+
 const Header = () => {
   return (
     <>
       <header>
-        <nav class="navbar navbar-light bg-light nav-bar">
-          <div class="container-fluid">
-            {/* <a class="navbar-brand">Navbar</a> */}
-            <div class="dropdown show">
+        <nav className="navbar navbar-light bg-light nav-bar">
+          <div className="container-fluid">
+            {/* <a className="navbar-brand">Navbar</a> */}
+            <div className="dropdown show">
               <a
-                class="btn btn-secondary dropdown-toggle"
+                className="btn btn-secondary dropdown-toggle"
                 href="#"
                 role="button"
                 id="dropdownMenuLink"
@@ -18,26 +20,26 @@ const Header = () => {
                 fwd
               </a>
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a className="dropdown-item" href="#">
                   Myntra
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   fwd
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Luxe
                 </a>
               </div>
             </div>
-            <form class="d-flex">
+            <form className="d-flex">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              {/* <button class="btn btn-outline-success" type="submit">
+              {/* <button className="btn btn-outline-success" type="submit">
                 Search
               </button> */}
             </form>
