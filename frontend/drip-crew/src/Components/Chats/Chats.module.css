@@ -1,0 +1,206 @@
+/* Chats.module.css
+.container {
+    width: 397.33px;
+    height: 100vh;
+    border: 1.5px solid black;
+}
+
+.header-name
+{
+    display: flex;
+    height: 75px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-bottom: 1.5px solid black;
+
+}
+
+.add-friend-icon
+{
+    height: 50px;
+    width: 50px;
+    margin-right: 100px;
+}
+
+.drip-crew{
+    margin-right: 70px;
+    font-size: 1.5rem;
+}
+
+
+.contacts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+} */
+
+
+/* Chats.module.css */
+ /* .container {
+    width: 300px;
+    height: 100vh;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+.header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+
+.header .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.contacts {
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact:hover {
+    background-color: #f0f0f0;
+}
+
+.contact img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.contact .details {
+    flex: 1;
+}
+
+.contact .name {
+    font-weight: bold;
+}
+
+.contact .status {
+    color: #999;
+    font-size: 0.9rem;
+} 
+
+
+
+  */
+
+
+
+  .container {
+    width: 300px;
+    height: 100vh;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    z-index: 1000; /* Ensure header stays above content */
+}
+
+.header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+
+.header .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.contacts {
+    flex: 1; /* Fill remaining space and allow scrolling */
+    padding: 16px;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact:hover {
+    background-color: #f0f0f0;
+}
+
+.contact img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.contact .details {
+    flex: 1;
+}
+
+.contact .name {
+    font-weight: bold;
+}
+
+/* .contact .status {
+    color: #999;
+    font-size: 0.9rem;
+} */
