@@ -1,13 +1,26 @@
 import React from "react";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoIosHeartEmpty } from "react-icons/io";
+import { LiaShoppingBagSolid } from "react-icons/lia";
+import { FaSearch, FaCamera, FaMicrophone } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
   return (
     <>
       <header>
         <nav className="navbar navbar-light bg-light nav-bar">
-          <div className="container-fluid">
-            {/* <a className="navbar-brand">Navbar</a> */}
-            <div className="dropdown show">
+          <div className="nav-content">
+            <button className="menu-btn">
+              fwd <FaChevronDown className="dropdown-icon" />
+            </button>
+            <div className="insider">
+              <span className="crown-icon">👑</span>
+              <span className="select-insider">
+                SELECT <span className="insider-highlight">INSIDER</span>
+              </span>
+            </div>
+            {/* <div className="dropdown show">
               <a
                 className="btn btn-secondary dropdown-toggle"
                 href="#"
@@ -18,9 +31,9 @@ const Header = () => {
                 aria-expanded="false"
               >
                 fwd
-              </a>
+              </a> */}
 
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a className="dropdown-item" href="#">
                   Myntra
                 </a>
@@ -30,19 +43,23 @@ const Header = () => {
                 <a className="dropdown-item" href="#">
                   Luxe
                 </a>
-              </div>
-            </div>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              {/* <button className="btn btn-outline-success" type="submit">
-                Search
-              </button> */}
-            </form>
+              </div> */}
+          </div>
+          <div className="search-bar">
+            <FaSearch className="search-icon" />
+            <input
+              className="search"
+              type="search"
+              placeholder="Search for Casual Coords Women"
+              aria-label="Search"
+            />
+            <FaCamera className="camera-icon" />
+            <FaMicrophone className="microphone-icon" />
+          </div>
+          <div>
+            <IoMdNotificationsOutline className="icon" />
+            <IoIosHeartEmpty className="icon" />
+            <LiaShoppingBagSolid className="icon" />
           </div>
         </nav>
       </header>
