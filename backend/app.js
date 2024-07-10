@@ -14,6 +14,7 @@ app.use(
   express.static(path.join(__dirname, "../frontend/drip-crew/src/assets"))
 );
 
+
 //CONNECTING DB
 const MONGO_URL = "mongodb://127.0.0.1:27017/drip-crew";
 main()
@@ -51,3 +52,5 @@ const port = 8080;
 app.listen(port, () => {
   console.log(`server is listening to port ${port}`);
 });
+
+
