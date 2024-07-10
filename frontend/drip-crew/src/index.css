@@ -125,7 +125,7 @@
 }
 
 /* Product css*/
-.product-card {
+/* .product-card {
   width: 250px;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
@@ -186,9 +186,120 @@
 
 .discount {
   color: #ff5252;
+} */
+
+.product-list {
+  display: flex;
+}
+.product-card {
+  position: relative;
+  width: 210px;
+  height: 360px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+  margin-right: 10px;
 }
 
-/*main section css*/
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 210px;
+  height: 280px;
+  object-fit: cover; /* Ensures the image covers the area */
+}
+
+.product-info {
+  padding: 5px; /* Reduced padding */
+  box-sizing: border-box;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-size: 12px; /* Adjusted for smaller card */
+}
+
+.rating span {
+  margin-right: 3px;
+}
+
+.product-title {
+  font-size: 14px;
+  margin: 1px 0; /* Adjusted margin */
+}
+
+.product-description {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 1px; /* Adjusted margin */
+}
+
+.product-pricing {
+  display: flex;
+  align-items: center;
+  font-size: 12px; /* Adjusted for smaller card */
+  margin-bottom: 1px;
+}
+
+.current-price {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 5px;
+}
+
+.discount {
+  color: #27ae60;
+}
+
+.hover-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .hover-buttons {
+  opacity: 1;
+}
+
+.button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 12px; /* Adjusted for smaller card */
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+}
+
+.button svg {
+  margin-right: 3px;
+}
+
+/*main section css-------------------------------*/
 .main {
   height: 100vh;
   width: 100%;

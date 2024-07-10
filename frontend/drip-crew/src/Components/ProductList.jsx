@@ -9,6 +9,7 @@ const ProductList = () => {
           <img className="offer1" src={productSource} />
           <img className="offer2" src={productSource2} />
         </div>
+        <Product></Product>
       </div>
     </>
   );
