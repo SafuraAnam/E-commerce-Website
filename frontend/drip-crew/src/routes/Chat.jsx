@@ -30,13 +30,12 @@
 
 
 import Chats from "../Components/Chats/Chats";
-import SideBar from "../Components/SideBar";
+import SideBar2 from "../Components/SideBar2";
 import Messages from "../Components/Messages/Messages";
 import { useState } from "react";
 import defaultAvatar from '../assets/avatar.svg'
 
 function Chat() {
-
   const defaultCurrentUser = {
     _id: "668d14a467de43c0bbbdb0d2", // Assign a unique ID
     name: 'John Doe',   // Assign a name or identifier
@@ -56,7 +55,7 @@ function Chat() {
   return (
     <>
       <div className="chat-wrapper">
-        <SideBar />
+        <SideBar2 />
         <Chats onSelectContact={handleContactSelect}  />  
         {/* setUser={handleSetUser} */}
         <Messages selectedContact={selectedContact} currentUser={user} />

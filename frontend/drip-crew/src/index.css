@@ -100,8 +100,8 @@
   background-color: #fff;
   padding: 10px;
   width: 70px;
-  height: 100vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100vmax;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .sidebar-option {
@@ -125,71 +125,12 @@
 }
 
 /* Product css*/
-/* .product-card {
-  width: 250px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-}
-
-.product-image {
-  width: 100%;
-  height: auto;
-}
-
-.product-info {
-  padding: 10px;
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.rating i {
-  color: #ff9800;
-  margin-left: 5px;
-}
-
-.product-title {
-  font-size: 16px;
-  margin: 5px 0;
-  color: #333;
-}
-
-.product-description {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 10px;
-}
-
-.product-pricing {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-}
-
-.current-price {
-  color: #333;
-  font-weight: bold;
-}
-
-.original-price {
-  color: #777;
-  text-decoration: line-through;
-  margin: 0 5px;
-}
-
-.discount {
-  color: #ff5252;
-} */
 
 .product-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex: 1;
 }
 .product-card {
   position: relative;
@@ -199,7 +140,8 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   transition: box-shadow 0.3s ease;
-  margin-right: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .product-card:hover {
@@ -316,7 +258,174 @@
   width: 100%;
   height: 325px;
 }
+.offer3 {
+  width: 100%;
+  height: 86px;
+  margin-bottom: 20px;
+}
 
+/* Footer.css */
+.footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: calc(100% - 70px); /* Adjust width based on your sidebar width */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-right img {
+  width: 130px;
+  margin: 5px 0;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+  margin: 10px 0;
+  margin-left: 350px;
+}
+
+.footer-note {
+  margin-top: 10px;
+}
+
+.footer-note img {
+  width: 50px;
+}
+
+.main-content {
+  display: flex;
+}
+
+.product-cards {
+  flex: 1;
+  padding: 20px;
+}
+
+/*css to keep navbar and sidebar fixed and scroll the rest*/
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.main-content {
+  display: flex;
+  height: 100vh;
+  margin-top: 0px; /* Adjust based on your header height */
+}
+
+.sidebar {
+  width: 70px;
+  position: fixed;
+  top: 80px; /* Adjust based on your header height */
+  bottom: 0;
+  /* background-color: #f5f5f5; */
+  z-index: 1000;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 70px; /* Adjust based on your sidebar width */
+  margin-top: 80px; /* Adjust based on your header height */
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/*SideBar2 css*/
+.sidebar2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  width: 70px;
+  height: 100vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar2-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar2-option:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.sidebar2-option span {
+  margin-top: 5px;
+  font-size: 12px;
+    color: #333;
+}
+.sidebar2 img {
+  height: 25px;
+}
+
+/*CHAT.JSX STYLING*/
 /*Chat.jsx styling*/
 .chat-wrapper {
   display: flex;
