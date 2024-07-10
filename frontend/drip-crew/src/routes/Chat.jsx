@@ -1,13 +1,13 @@
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Chats from "../Components/Chats/Chats";
-import SideBar from "../Components/SideBar";
+import SideBar2 from "../Components/SideBar2";
 
 function Chat() {
   return (
     <>
       <div className="chat-wrapper">
-        <SideBar></SideBar>
+        <SideBar2></SideBar2>
         <Chats></Chats>
       </div>
     </>
