@@ -63,6 +63,7 @@ const mongoose = require('mongoose');
 const User = require('./models/user');
 const cors = require('cors');
 const path = require('path');
+const Product= require('./models/Product')
 
 const app = express();
 const server = http.createServer(app);
