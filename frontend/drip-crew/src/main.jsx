@@ -5,6 +5,7 @@ import App from "./routes/App.jsx";
 import Chats from "./Components/Chats/Chats.jsx";
 import Chat from "./routes/Chat.jsx";
 import "./index.css";
+import WishList from "./routes/WishList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/users",
     element: <Chat />,
+  },
+  {
+    path: "/wishlist",
+    element: <WishList />,
   },
 ]);
 

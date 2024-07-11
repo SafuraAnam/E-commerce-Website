@@ -129,10 +129,9 @@
 
   */
 
+/* -----------------------------------------old----------------------------------- */
 
-  /* -----------------------------------------old----------------------------------- */
-
-  .container {
+.container {
   width: 500px;
   height: 100vh;
   border: 1px solid #ccc;
@@ -152,7 +151,7 @@
   padding: 16px;
   background-color: white;
   border-bottom: 1px solid #ccc;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .header img {
@@ -168,9 +167,9 @@
 }
 
 .contacts {
-  flex: 1; 
+  flex: 1;
   padding: 16px;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 .contact {
@@ -201,17 +200,14 @@
   font-weight: bold;
 }
 
-
-.styleIconsAvatar
-{
+.styleIconsAvatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
-.styleIconsDetails
-{
+.styleIconsDetails {
   display: flex;
   align-items: center;
   padding: 12px;
@@ -220,16 +216,19 @@
   transition: background-color 0.3s ease;
 }
 
-.styleIconsDetails:hover{
+.styleIconsDetails:hover {
   background-color: #f0f0f0;
-} 
+}
 
-.styleIconsHeading
-{
+.styleIconsHeading {
   margin-top: 60px;
   margin-bottom: 30px;
 }
- 
 
+.details {
+  display: flex;
+}
+.bdayIcon {
+  margin-left: 5px;
+}
 /* recent */
- 

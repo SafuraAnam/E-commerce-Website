@@ -6,8 +6,6 @@
 
 // const Chats = ({ onSelectContact }) => {
 //   const [users, setUsers] = useState([]);
-  
-
 
 //   useEffect(() => {
 //     // Fetch users from backend API
@@ -51,17 +49,15 @@
 //           </div>
 //         ))}
 
-
 //         {/* ------------------------------//style icons -------------------------------------*/}
 //         <div className={styles.styleIconsContainer}>
-        
+
 //           <div className={styles.styleIconsHeading}>
 //             <h2>Style Icons</h2>
-            
+
 //           <p>Follow your favourite fashion influencers to stay updated with the latest fashion trends</p>
 //           </div>
 
-       
 //         <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
 //           <img className={styles.styleIconsAvatar} src={defaultAvatar} />
 //           <div className={styles.details}>
@@ -76,7 +72,6 @@
 //           </div>
 //         </div>
 
-
 //         <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
 //           <img className={styles.styleIconsAvatar} src={defaultAvatar} />
 //           <div className={styles.details}>
@@ -84,30 +79,27 @@
 //           </div>
 //         </div>
 
-
 //         </div>
 
-        
 //       </div>
 //     </div>
 //   );
-  
 
 // };
 
 // export default Chats;
-
-
 
 import styles from "./Chats.module.css";
 import AddFriendIcon from "../../assets/add-friend-icon.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import defaultAvatar from "../../assets/avatar.svg";
+import { FaBirthdayCake } from "react-icons/fa";
+import BdayComponent from "../BdayComponent/BdayComponent";
 
-const Chats = ({ onSelectContact}) => {
-
+const Chats = ({ onSelectContact }) => {
   const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
   useEffect(() => {
     // Fetch users from backend API
     axios
@@ -126,6 +118,10 @@ const Chats = ({ onSelectContact}) => {
     onSelectContact(contact); // Notify parent component of selected contact
   };
 
+  const handleCakeClick = (user) => {
+    setSelectedUser(user);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -134,7 +130,11 @@ const Chats = ({ onSelectContact}) => {
       </div>
       <div className={styles.contacts}>
         {users.map((user) => (
-          <div key={user._id} className={styles.contact} onClick={() => handleContactClick(user)}>
+          <div
+            key={user._id}
+            className={styles.contact}
+            onClick={() => handleContactClick(user)}
+          >
             <img
               src={defaultAvatar}
               className={styles.avatar}
@@ -146,6 +146,15 @@ const Chats = ({ onSelectContact}) => {
             <div className={styles.details}>
               <div className={styles.name}>{user.name}</div>
               <div className={styles.status}>{user.status}</div>
+              {user.isBdayComing && (
+                <FaBirthdayCake
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the contact click
+                    handleCakeClick(user);
+                  }}
+                  className={styles.bdayIcon}
+                />
+              )}
             </div>
           </div>
         ))}
@@ -154,7 +163,10 @@ const Chats = ({ onSelectContact}) => {
         <div className={styles.styleIconsContainer}>
           <div className={styles.styleIconsHeading}>
             <h2>Style Icons</h2>
-            <p>Follow your favourite fashion influencers to stay updated with the latest fashion trends</p>
+            <p>
+              Follow your favourite fashion influencers to stay updated with the
+              latest fashion trends
+            </p>
           </div>
           <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
@@ -176,10 +188,14 @@ const Chats = ({ onSelectContact}) => {
           </div>
         </div>
       </div>
+      {selectedUser && (
+        <BdayComponent
+          user={selectedUser}
+          onClose={() => setSelectedUser(null)}
+        />
+      )}
     </div>
   );
 };
 
 export default Chats;
-
-

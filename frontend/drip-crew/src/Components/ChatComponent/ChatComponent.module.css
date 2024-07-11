@@ -62,15 +62,42 @@
 }
 
 .edit-icon {
-  margin-left: auto;
+  margin-left: 15px;
   cursor: pointer;
+  width: 14px;
+  height: 25px;
+}
+.streak-icon {
+  width: 14px;
+  height: 25px;
 }
 
 .chat-notifications {
-  background-color: red;
-  color: white;
+  /* background-color: red; */
+  /* color: white;
   border-radius: 50%;
   padding: 2px 8px;
   font-size: 0.8rem;
-  margin-left: 10px;
+  margin-left: 10px; */
+  margin-bottom: 30px;
+  color: red;
+}
+
+.streak-product-card {
+  display: flex;
+}
+.streak-count img {
+  width: 14px;
+  height: 25px;
+  margin-top: 180px;
+}
+.streak-count {
+  display: flex;
+}
+.streak-count span {
+  color: red;
+  margin-top: 162px;
+}
+.date {
+  margin-left: 400px;
 }

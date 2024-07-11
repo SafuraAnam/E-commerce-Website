@@ -16,7 +16,6 @@
 //   express.static(path.join(__dirname, "../frontend/drip-crew/src/assets"))
 // );
 
-
 // //CONNECTING DB
 // const MONGO_URL = "mongodb://127.0.0.1:27017/drip-crew";
 // main()
@@ -55,15 +54,14 @@
 //   console.log(`server is listening to port ${port}`);
 // });
 
-
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
-const mongoose = require('mongoose');
-const User = require('./models/user');
-const cors = require('cors');
-const path = require('path');
-const Product= require('./models/Product')
+const mongoose = require("mongoose");
+const User = require("./models/user");
+const cors = require("cors");
+const path = require("path");
+const Product = require("./models/Product");
 
 const app = express();
 const server = http.createServer(app);
@@ -77,13 +75,20 @@ const io = new Server(server, {
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/assets', express.static(path.join(__dirname, '../frontend/drip-crew/src/assets')));
+app.use(
+  "/assets",
+  express.static(path.join(__dirname, "../frontend/drip-crew/src/assets"))
+);
 
 // Connecting to DB
 const MONGO_URL = "mongodb://127.0.0.1:27017/drip-crew";
 main()
-  .then(() => { console.log("connected to db"); })
-  .catch((err) => { console.log(err); });
+  .then(() => {
+    console.log("connected to db");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 async function main() {
   await mongoose.connect(MONGO_URL);
@@ -117,7 +122,7 @@ io.on("connection", (socket) => {
 });
 
 // Routes
-app.get('/users', async (req, res) => {
+app.get("/users", async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -125,7 +130,6 @@ app.get('/users', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
 
 app.get("/", async (req, res) => {
   try {
@@ -135,7 +139,6 @@ app.get("/", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
 
 // Setting up the server at port 8080
 const port = 8080;

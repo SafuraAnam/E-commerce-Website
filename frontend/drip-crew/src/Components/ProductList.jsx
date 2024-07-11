@@ -12,6 +12,9 @@ const ProductList = () => {
           <img className="offer2" src={productSource2} />
           <img className="offer3" src={productSource3} />
         </div>
+        <div>
+          <h4 className="text-banner-title">TRENDING IN WESTERN WEAR</h4>
+        </div>
         <Product></Product>
         <Footer></Footer>
       </div>
