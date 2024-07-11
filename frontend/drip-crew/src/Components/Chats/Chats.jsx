@@ -94,10 +94,18 @@ import AddFriendIcon from "../../assets/add-friend-icon.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import defaultAvatar from "../../assets/avatar.svg";
+import { useNavigate } from "react-router-dom";
 import { FaBirthdayCake } from "react-icons/fa";
 import BdayComponent from "../BdayComponent/BdayComponent";
 
 const Chats = ({ onSelectContact }) => {
+  const navigate = useNavigate();
+
+  const handleRedirect = (path) => {
+    console.log("sonam clicked");
+    navigate(path);
+  };
+
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   useEffect(() => {
@@ -168,7 +176,13 @@ const Chats = ({ onSelectContact }) => {
               latest fashion trends
             </p>
           </div>
-          <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
+          <div
+            className={`${styles.styleIconsDetails} ${styles.contacts} `}
+            type="button"
+            onClick={() => {
+              handleRedirect("/styleIcon");
+            }}
+          >
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
             <div className={styles.details}>
               <div className={styles.name}>Sonam</div>

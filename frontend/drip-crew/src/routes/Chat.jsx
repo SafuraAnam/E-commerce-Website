@@ -32,21 +32,27 @@
 import Chats from "../Components/Chats/Chats";
 import SideBar2 from "../Components/SideBar2";
 import Messages from "../Components/Messages/Messages";
+import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 import defaultAvatar from '../assets/avatar.svg'
+import StyleIcon from "./StyleIcon";
+
 
 function Chat() {
+  const [selectedContact, setSelectedContact] = useState(null);
   const defaultCurrentUser = {
     _id: "668d14a467de43c0bbbdb0d2", // Assign a unique ID
     name: 'John Doe',   // Assign a name or identifier
     avatar: {defaultAvatar}, // Provide a default avatar image
   };
-  const [selectedContact, setSelectedContact] = useState(null);
+  
   const [user, setUser] = useState(defaultCurrentUser);
 
   const handleContactSelect = (contact) => {
     setSelectedContact(contact);
   };
+  const location = useLocation();
+  const isStyleIconRoute = location.pathname === '/users/styleIcon';
 
   // const handleSetUser = (user) => {
   //   setUser(user);
@@ -58,6 +64,12 @@ function Chat() {
         <SideBar2 />
         <Chats onSelectContact={handleContactSelect}  />  
         {/* setUser={handleSetUser} */}
+        {/* {isStyleIconRoute ? (
+          <StyleIcon />
+        ) : (
+          <Messages selectedContact={selectedContact} currentUser={user} />
+        )} */}
+
         <Messages selectedContact={selectedContact} currentUser={user} />
       </div>
     </>
