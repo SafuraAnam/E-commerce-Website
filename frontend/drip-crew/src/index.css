@@ -429,4 +429,12 @@ main {
 /*Chat.jsx styling*/
 .chat-wrapper {
   display: flex;
+  height: 100vh;
+}
+
+/*  STYLEICON.JSX*/
+.StyleIconProfileContainer{
+  margin-top: 80px;
+  margin-left: 70px;
+
 }

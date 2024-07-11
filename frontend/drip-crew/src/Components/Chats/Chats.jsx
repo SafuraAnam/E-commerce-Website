@@ -104,8 +104,16 @@ import AddFriendIcon from "../../assets/add-friend-icon.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import defaultAvatar from "../../assets/avatar.svg";
+import { useNavigate } from "react-router-dom";
 
 const Chats = ({ onSelectContact}) => {
+  const navigate = useNavigate();
+  
+  const handleRedirect = (path) => {
+    console.log("sonam clicked")
+    navigate(path);
+  };
+
 
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -156,9 +164,13 @@ const Chats = ({ onSelectContact}) => {
             <h2>Style Icons</h2>
             <p>Follow your favourite fashion influencers to stay updated with the latest fashion trends</p>
           </div>
-          <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
+          <div className={`${styles.styleIconsDetails} ${styles.contacts} `}  type="button"
+          onClick={() => {
+           
+            handleRedirect("/styleIcon");
+          }}>
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
-            <div className={styles.details}>
+            <div className={styles.details}  >
               <div className={styles.name}>Sonam</div>
             </div>
           </div>

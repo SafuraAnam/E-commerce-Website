@@ -136,7 +136,6 @@ app.get("/", async (req, res) => {
   }
 });
 
-
 // Setting up the server at port 8080
 const port = 8080;
 server.listen(port, () => {
