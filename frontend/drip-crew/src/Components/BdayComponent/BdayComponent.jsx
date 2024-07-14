@@ -3,6 +3,7 @@ import { FaBirthdayCake } from "react-icons/fa";
 import styles from "./BdayComponent.module.css"; // Assuming you create a corresponding CSS file
 import imageSource from "../../assets/avatar.svg";
 import { IoHeartOutline } from "react-icons/io5";
+import cakeImg from "../../assets/cake.gif";
 
 import { useNavigate } from "react-router-dom";
 
@@ -20,16 +21,16 @@ const BdayComponent = ({ user, onClose }) => {
       <div className={styles.bdayHeader}>
         <img src={imageSource} alt="Profile" className={styles.profilePic} />
         <div className={styles.userInfo}>
-          <h2>{user.name}</h2>
+          <h4>{user.name}</h4>
           <p>
-            <FaBirthdayCake /> 28 Aug
+            <img src={cakeImg} className={styles["cake-img"]} /> 28 Aug
           </p>
         </div>
       </div>
       <div className={styles.bdayBody}>
         <p>
-          Birthday in 7 days... <br />
-          Surprise {user.name} with a birthday gift from their own wishlist!!!
+          {user.name}'s birthday is in 7 days... <br />
+          Surprise them with a birthday gift from their own Wishlist!
         </p>
         <button className={styles.wishlistBtn} onClick={handleViewWishlist}>
           View Wishlist{" "}

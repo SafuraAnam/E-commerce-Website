@@ -100,6 +100,7 @@ import { FaBirthdayCake } from "react-icons/fa";
 import BdayComponent from "../BdayComponent/BdayComponent";
 import videoSource from "../../assets/cake.gif";
 import streakIconImg from "../../assets/lightning-icon.svg";
+import tickImg from "../../assets/verifiedTick.svg";
 
 const Chats = ({ onSelectContact }) => {
   const navigate = useNavigate();
@@ -204,18 +205,21 @@ const Chats = ({ onSelectContact }) => {
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
             <div className={styles.details}>
               <div className={styles.name}>Sonam</div>
+              <img src={tickImg} />
             </div>
           </div>
           <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
             <div className={styles.details}>
               <div className={styles.name}>Sonam</div>
+              <img src={tickImg} />
             </div>
           </div>
           <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
             <div className={styles.details}>
               <div className={styles.name}>Sonam</div>
+              <img src={tickImg} />
             </div>
           </div>
         </div>
