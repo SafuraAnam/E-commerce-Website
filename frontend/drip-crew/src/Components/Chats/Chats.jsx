@@ -204,21 +204,21 @@ const Chats = ({ onSelectContact }) => {
           >
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
             <div className={styles.details}>
-              <div className={styles.name}>Sonam</div>
+              <div className={styles.name}>Kiara Advani</div>
               <img src={tickImg} />
             </div>
           </div>
           <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
             <div className={styles.details}>
-              <div className={styles.name}>Sonam</div>
+              <div className={styles.name}>Alia Bhatt</div>
               <img src={tickImg} />
             </div>
           </div>
           <div className={`${styles.styleIconsDetails} ${styles.contacts} `}>
             <img className={styles.styleIconsAvatar} src={defaultAvatar} />
             <div className={styles.details}>
-              <div className={styles.name}>Sonam</div>
+              <div className={styles.name}>Komal Pandey</div>
               <img src={tickImg} />
             </div>
           </div>
