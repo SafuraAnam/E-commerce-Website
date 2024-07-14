@@ -89,6 +89,7 @@
 
 // export default Chats;
 
+//old correct code-------
 import styles from "./Chats.module.css";
 import AddFriendIcon from "../../assets/add-friend-icon.svg";
 import axios from "axios";
@@ -202,6 +203,7 @@ const Chats = ({ onSelectContact }) => {
           </div>
         </div>
       </div>
+
       {selectedUser && (
         <BdayComponent
           user={selectedUser}

@@ -98,10 +98,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import defaultProductImg from "../assets/productImage.jpg";
 import { FaStar, FaHeart, FaShoppingBag, FaShare } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("http://localhost:8080/")
@@ -114,6 +115,10 @@ const Product = () => {
         console.error("There was an error fetching the product data!", error);
       });
   }, []);
+
+  const handleShareClick = (product) => {
+    navigate("/users", { state: { product } });
+  };
 
   return (
     <div className="product-list">
@@ -147,7 +152,10 @@ const Product = () => {
             <button className="button">
               <FaShoppingBag /> Bag
             </button>
-            <button className="button">
+            <button
+              className="button"
+              onClick={() => handleShareClick(product)}
+            >
               <FaShare /> Share
             </button>
           </div>
