@@ -108,7 +108,6 @@ const Product = () => {
   const { setSharedProduct, setRecipientUser } = useShare(); // Destructure from context
   const navigate = useNavigate();
 
-  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("http://localhost:8080/")
@@ -133,10 +132,6 @@ const Product = () => {
       __v: 0,
     }); // Example user
     navigate(path);
-  };
-
-  const handleShareClick = (product) => {
-    navigate("/users", { state: { product } });
   };
 
   return (
@@ -174,7 +169,6 @@ const Product = () => {
             <button
               onClick={() => handleShareClick(product, "/users")}
               className="button"
-              onClick={() => handleShareClick(product)}
             >
               <FaShare /> Share
             </button>
