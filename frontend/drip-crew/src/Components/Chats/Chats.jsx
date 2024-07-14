@@ -89,7 +89,7 @@
 
 // export default Chats;
 
-//old correct code-------
+//correct code
 import styles from "./Chats.module.css";
 import AddFriendIcon from "../../assets/add-friend-icon.svg";
 import axios from "axios";
@@ -98,6 +98,8 @@ import defaultAvatar from "../../assets/avatar.svg";
 import { useNavigate } from "react-router-dom";
 import { FaBirthdayCake } from "react-icons/fa";
 import BdayComponent from "../BdayComponent/BdayComponent";
+import videoSource from "../../assets/cake.gif";
+import streakIconImg from "../../assets/lightning-icon.svg";
 
 const Chats = ({ onSelectContact }) => {
   const navigate = useNavigate();
@@ -156,13 +158,28 @@ const Chats = ({ onSelectContact }) => {
               <div className={styles.name}>{user.name}</div>
               <div className={styles.status}>{user.status}</div>
               {user.isBdayComing && (
-                <FaBirthdayCake
-                  onClick={(e) => {
-                    e.stopPropagation(); // Prevent triggering the contact click
-                    handleCakeClick(user);
-                  }}
-                  className={styles.bdayIcon}
-                />
+                <div className={styles.cake}>
+                  <img
+                    src={videoSource}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent triggering the contact click
+                      handleCakeClick(user);
+                    }}
+                    className={styles.bdayIcon}
+                    syle={"width:10px;height:10px"}
+                  />
+                  <span>
+                    <i>Birthday in 7 days, surprise them with a gift</i>
+                  </span>
+                </div>
+              )}
+              {user.isStreak && (
+                <div className={styles["streak-count"]}>
+                  <img src={streakIconImg} alt="Streak" />
+                  <span className={styles["streak-no"]}>
+                    {user.streakCount}
+                  </span>
+                </div>
               )}
             </div>
           </div>
@@ -203,7 +220,6 @@ const Chats = ({ onSelectContact }) => {
           </div>
         </div>
       </div>
-
       {selectedUser && (
         <BdayComponent
           user={selectedUser}

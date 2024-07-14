@@ -5,6 +5,8 @@ const userSchema = new Schema({
   name: String,
   avatar: String,
   isBdayComing: Boolean,
+  isStreak: Boolean,
+  streakCount: Number,
 });
 
 const User = mongoose.model("User", userSchema);

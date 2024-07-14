@@ -93,14 +93,11 @@
 // export default Product;
 
 //recent---------------
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import defaultProductImg from "../assets/productImage.jpg";
 import { FaStar, FaHeart, FaShoppingBag, FaShare } from "react-icons/fa";
 import { useShare } from "./ShareContext";
-import { useNavigate } from "react-router-dom";
-
 import { useNavigate } from "react-router-dom";
 
 const Product = () => {

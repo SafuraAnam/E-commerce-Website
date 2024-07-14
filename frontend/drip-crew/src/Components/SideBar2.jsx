@@ -28,15 +28,18 @@ const SideBar2 = () => {
           <span>Minis</span>
         </div>
         <div
-          className="sidebar2-option"
+          className="sidebar2-option sidebar2-streak"
           type="button"
           onClick={() => {
             handleRedirect("/");
           }}
         >
-          <img src={productSource3} size={24} />
-          {/* <FaUsers size={24} /> */}
-          <span>Streak</span>
+          <div className="">
+            <img src={productSource3} size={24} />
+            {/* <FaUsers size={24} /> */}
+            <span>Streak</span>
+          </div>
+          <div className="new">NEW</div>
         </div>
 
         <div className="sidebar2-option">

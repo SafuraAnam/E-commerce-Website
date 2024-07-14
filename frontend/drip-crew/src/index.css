@@ -428,6 +428,22 @@ main {
 .sidebar2 img {
   height: 25px;
 }
+.new {
+  position: relative;
+  top: -60px;
+  right: -17px;
+  font-size: xx-small;
+  color: red;
+  font-weight: 500;
+}
+
+.sidebar2-streak {
+  margin-top: 30px;
+}
+
+.sidebar2-streak img {
+  margin-left: 10px;
+}
 
 /*CHAT.JSX STYLING*/
 /*Chat.jsx styling*/
@@ -437,13 +453,11 @@ main {
 }
 
 /*  STYLEICON.JSX*/
-.StyleIconProfileContainer{
+.StyleIconProfileContainer {
   margin-top: 80px;
   margin-left: 70px;
-
 }
 
-.my-new-div
-{
+.my-new-div {
   display: flex;
 }
