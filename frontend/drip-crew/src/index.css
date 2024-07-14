@@ -442,3 +442,8 @@ main {
   margin-left: 70px;
 
 }
+
+.my-new-div
+{
+  display: flex;
+}

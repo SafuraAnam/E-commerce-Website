@@ -18,7 +18,7 @@ async function main() {
 
 const products = [
   {
-    image: "path/to/productImage.jpg",
+    image: "http://localhost:8080/assets/productImage.jpg",
     rating: 4.4,
     reviews: "5.3k",
     title: "Kook N Keech",
@@ -28,7 +28,7 @@ const products = [
     discount: "53% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product4.jpg",
     rating: 4.7,
     reviews: "3.2k",
     title: "Roadster",
@@ -38,7 +38,7 @@ const products = [
     discount: "50% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product5.jpg",
     rating: 4.1,
     reviews: "1.2k",
     title: "Levis",
@@ -48,7 +48,7 @@ const products = [
     discount: "45% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product2.jpg",
     rating: 3.9,
     reviews: "2.8k",
     title: "Tokyo Talkies",
@@ -58,7 +58,7 @@ const products = [
     discount: "50% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product1.jpg",
     rating: 4.0,
     reviews: "9.0k",
     title: "Roadster",
@@ -68,7 +68,7 @@ const products = [
     discount: "66% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product3.jpg",
     rating: 4.2,
     reviews: "1.4k",
     title: "DressBerry",
@@ -78,7 +78,7 @@ const products = [
     discount: "40% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product5.jpg",
     rating: 4.1,
     reviews: "1.2k",
     title: "Levis",
@@ -88,7 +88,7 @@ const products = [
     discount: "45% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product2.jpg",
     rating: 3.9,
     reviews: "2.8k",
     title: "Tokyo Talkies",
@@ -96,9 +96,9 @@ const products = [
     currentPrice: 649,
     originalPrice: 1499,
     discount: "50% OFF",
-  },
+  },  
   {
-    image: "path/to/productImage.jpg",
+    image: "http://localhost:8080/assets/productImage.jpg",
     rating: 4.4,
     reviews: "5.3k",
     title: "Kook N Keech",
@@ -108,7 +108,7 @@ const products = [
     discount: "53% OFF",
   },
   {
-    image: "path/to/anotherProductImage.jpg",
+    image: "http://localhost:8080/assets/product1.jpg",
     rating: 4.0,
     reviews: "9.0k",
     title: "Roadster",
