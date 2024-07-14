@@ -624,6 +624,9 @@ const ChatComponent = ({ currentUser, selectedContact }) => {
   const [input, setInput] = useState("");
   const [room, setRoom] = useState(null);
  
+  const [streakCount, setStreakCount] = useState(99); // State for streak count
+
+ 
 const chatBodyRef = useRef(null); // Ref for chat body container
   // Function to scroll chat body to the bottom
   const scrollToBottom = () => {
@@ -668,6 +671,7 @@ const chatBodyRef = useRef(null); // Ref for chat body container
         ...prevMessages,
         { type: "product", content: product },
       ]);
+      setStreakCount((prevCount) => prevCount + 1); // Increment streak count
     };
 
     socket.on("receiveMessage", handleReceiveMessage);
@@ -725,6 +729,7 @@ const chatBodyRef = useRef(null); // Ref for chat body container
   const sendProduct = (product) => {
     console.log("in sendProduct",room);
     socket.emit("sendProduct", { room, product });
+    // setStreakCount((prevCount) => prevCount + 1); // Increment streak count
   };
 
   useEffect(() => {
@@ -746,7 +751,7 @@ const chatBodyRef = useRef(null); // Ref for chat body container
         <span className={styles["edit-icon"]}>
           <img className={styles["streak-icon"]} src={streakIconImg} alt="Streak" />
         </span>
-        <span className={styles["chat-notifications"]}>99</span>
+        <span className={styles["chat-notifications"]}>{streakCount}</span>
       </div>
       <div className={styles["chat-body"]} ref={chatBodyRef}>
         <div className={styles["date"]}>Yesterday</div>
@@ -899,7 +904,7 @@ const chatBodyRef = useRef(null); // Ref for chat body container
 
 <div className={styles["streak-count"]}>
 <img src={streakIconImg} alt="Streak" />
-<span>100</span>
+<span>{streakCount}</span>
 </div>
 
 </div>
