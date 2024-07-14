@@ -7,6 +7,7 @@ import Chat from "./routes/Chat.jsx";
 import "./index.css";
 import StyleIcon from "./routes/StyleIcon.jsx";
 import WishList from "./routes/WishList.jsx";
+import { ShareProvider } from "./Components/ShareContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,10 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+    
+   <ShareProvider>
     <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>
+   </ShareProvider>
+  //  </React.StrictMode>
 );
