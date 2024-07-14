@@ -244,6 +244,7 @@ import { FaStar } from "react-icons/fa";
 import streakIconImg from "../../assets/lightning-icon.svg";
 import messageSound from "../../assets/message-send-audio.mp3";
 import { useShare } from "../ShareContext";
+import rewardGif from "../../assets/rewards.gif";
 const socket = io("http://localhost:8080"); // Replace with your server URL
 
 const ChatComponent = ({ currentUser, selectedContact }) => {
@@ -252,6 +253,9 @@ const ChatComponent = ({ currentUser, selectedContact }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [room, setRoom] = useState(null);
+
+  const [streakCount, setStreakCount] = useState(99); // State for streak count
+  const [showRewardGif, setShowRewardGif] = useState(false); // State for showing reward GIF
 
   const chatBodyRef = useRef(null); // Ref for chat body container
   // Function to scroll chat body to the bottom
@@ -296,6 +300,13 @@ const ChatComponent = ({ currentUser, selectedContact }) => {
         ...prevMessages,
         { type: "product", content: product },
       ]);
+      setStreakCount((prevCount) => prevCount + 1); // Increment streak count
+
+      // Show reward GIF if product is shared to Alice Johnson
+      if (selectedContact && selectedContact.name === "Alice Johnson") {
+        setShowRewardGif(true);
+        setTimeout(() => setShowRewardGif(false), 3000); // Hide after 3 seconds
+      }
     };
 
     socket.on("receiveMessage", handleReceiveMessage);
@@ -356,6 +367,7 @@ const ChatComponent = ({ currentUser, selectedContact }) => {
   const sendProduct = (product) => {
     console.log("in sendProduct", room);
     socket.emit("sendProduct", { room, product });
+    // setStreakCount((prevCount) => prevCount + 1); // Increment streak count
   };
 
   useEffect(() => {
@@ -380,7 +392,7 @@ const ChatComponent = ({ currentUser, selectedContact }) => {
             alt="Streak"
           />
         </span>
-        <span className={styles["chat-notifications"]}>99</span>
+        <span className={styles["chat-notifications"]}>{streakCount}</span>
       </div>
       <div className={styles["chat-body"]} ref={chatBodyRef}>
         <div className={styles["date"]}>Yesterday</div>
@@ -503,40 +515,42 @@ const ChatComponent = ({ currentUser, selectedContact }) => {
               <img src={message.content} alt="Shared" />
             )}
             {message.type === "product" && (
-              <div className="my-new-div">
-                <div className="product-card">
-                  <img
-                    src={message.content.image}
-                    className="product-image"
-                    alt="Shared Product"
-                  />
-                  <div className="product-info">
-                    <div className="rating">
-                      <span>{message.content.rating}</span>
-                      <FaStar />
-                      <span>| {message.content.reviews}</span>
-                    </div>
-                    <h3 className="product-title">{message.content.title}</h3>
-                    <p className="product-description">
-                      {message.content.description}
-                    </p>
-                    <div className="product-pricing">
-                      <span className="current-price">
-                        Rs. {message.content.currentPrice}
-                      </span>
-                      <span className="original-price">
-                        Rs. {message.content.originalPrice}
-                      </span>
-                      <span className="discount">
-                        ({message.content.discount}% OFF)
-                      </span>
+              <div className="my-div">
+                ME
+                <div className="my-new-div">
+                  <div className="product-card">
+                    <img
+                      src={message.content.image}
+                      className="product-image"
+                      alt="Shared Product"
+                    />
+                    <div className="product-info">
+                      <div className="rating">
+                        <span>{message.content.rating}</span>
+                        <FaStar />
+                        <span>| {message.content.reviews}</span>
+                      </div>
+                      <h3 className="product-title">{message.content.title}</h3>
+                      <p className="product-description">
+                        {message.content.description}
+                      </p>
+                      <div className="product-pricing">
+                        <span className="current-price">
+                          Rs. {message.content.currentPrice}
+                        </span>
+                        <span className="original-price">
+                          Rs. {message.content.originalPrice}
+                        </span>
+                        <span className="discount">
+                          ({message.content.discount}% OFF)
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className={styles["streak-count"]}>
-                  <img src={streakIconImg} alt="Streak" />
-                  <span>100</span>
+                  <div className={styles["streak-count"]}>
+                    <img src={streakIconImg} alt="Streak" />
+                    <span>{streakCount}</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -553,8 +567,302 @@ const ChatComponent = ({ currentUser, selectedContact }) => {
         <button onClick={sendMessage}>Send</button>
         <audio ref={audioRef} src={messageSound} />
       </div>
+      {showRewardGif && (
+        <div className={styles["reward-gif-container"]}>
+          <img src={rewardGif} alt="New Reward Earned" />
+        </div>
+      )}
     </div>
   );
 };
 
 export default ChatComponent;
+
+//new
+// import React, { useState, useEffect, useRef } from "react";
+// import io from "socket.io-client";
+// import styles from "./ChatComponent.module.css";
+// import defaultAvatar from "../../assets/avatar.svg";
+// import productSource from "../../assets/productImage.jpg";
+// import { FaStar } from "react-icons/fa";
+// import streakIconImg from "../../assets/lightning-icon.svg";
+// import messageSound from "../../assets/message-send-audio.mp3";
+// import rewardGif from "../../assets/reward.gif";
+
+// import { useShare } from "../ShareContext";
+// const socket = io("http://localhost:8080"); // Replace with your server URL
+
+// const ChatComponent = ({ currentUser, selectedContact }) => {
+//   const { sharedProduct, recipientUser, setSharedProduct } = useShare();
+//   const audioRef = useRef(null);
+//   const [messages, setMessages] = useState([]);
+//   const [input, setInput] = useState("");
+//   const [room, setRoom] = useState(null);
+//   const [streakCount, setStreakCount] = useState(99); // State for streak count
+//   const [showRewardGif, setShowRewardGif] = useState(false); // State for showing reward GIF
+
+//   const chatBodyRef = useRef(null); // Ref for chat body container
+
+//   // Function to scroll chat body to the bottom
+//   const scrollToBottom = () => {
+//     if (chatBodyRef.current) {
+//       chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+//     }
+//   };
+
+//   useEffect(() => {
+//     if (currentUser && selectedContact) {
+//       const roomName = [currentUser._id, selectedContact._id].sort().join("-");
+//       console.log("in chat componentn", roomName);
+//       setRoom(roomName);
+//       socket.emit("joinRoom", {
+//         userId: currentUser._id,
+//         contactId: selectedContact._id,
+//       });
+//     }
+//   }, [currentUser, selectedContact]);
+
+//   useEffect(() => {
+//     const handleReceiveMessage = (message) => {
+//       if (message.currentUser.id !== currentUser._id) {
+//         setMessages((prevMessages) => [
+//           ...prevMessages,
+//           { type: "text", content: message.content },
+//         ]);
+//       }
+//     };
+
+//     const handleReceiveImage = (image) => {
+//       setMessages((prevMessages) => [
+//         ...prevMessages,
+//         { type: "image", content: image },
+//       ]);
+//     };
+
+//     const handleReceiveProduct = (product) => {
+//       console.log("Product received:", product);
+//       setMessages((prevMessages) => [
+//         ...prevMessages,
+//         { type: "product", content: product },
+//       ]);
+//       setStreakCount((prevCount) => prevCount + 1); // Increment streak count
+
+//       // Show reward GIF if product is shared to Alice Johnson
+//       if (selectedContact && selectedContact.name === "Alice Johnson") {
+//         setShowRewardGif(true);
+//         setTimeout(() => setShowRewardGif(false), 4000); // Hide after 3 seconds
+//       }
+//     };
+
+//     socket.on("receiveMessage", handleReceiveMessage);
+//     socket.on("receiveImage", handleReceiveImage);
+//     socket.on("receiveProduct", handleReceiveProduct);
+
+//     return () => {
+//       socket.off("receiveMessage", handleReceiveMessage);
+//       socket.off("receiveImage", handleReceiveImage);
+//       socket.off("receiveProduct", handleReceiveProduct);
+//     };
+//   }, [currentUser, selectedContact]);
+
+//   useEffect(() => {
+//     if (
+//       sharedProduct &&
+//       recipientUser &&
+//       recipientUser._id === selectedContact._id
+//     ) {
+//       if (room) {
+//         sendProduct(sharedProduct);
+//         console.log("Shared product:", sharedProduct);
+//         console.log("Recipient user:", recipientUser);
+//         console.log("Room:", room);
+//         setSharedProduct(null); // Reset shared product after sending
+//       } else {
+//         console.error("Room is not set. Cannot send product.");
+//       }
+//     }
+//   }, [sharedProduct, recipientUser, selectedContact, room, setSharedProduct]);
+
+//   const sendMessage = () => {
+//     if (input.trim()) {
+//       socket.emit("sendMessage", { room, message: input });
+//       console.log("in sendMessage", room);
+//       setMessages((prevMessages) => [
+//         ...prevMessages,
+//         { type: "text", content: input },
+//       ]);
+//       setInput("");
+//       audioRef.current.play();
+//     }
+//   };
+
+//   const sendImage = (image) => {
+//     socket.emit("sendImage", { room, image });
+//   };
+
+//   const sendProduct = (product) => {
+//     console.log("in sendProduct", room);
+//     socket.emit("sendProduct", { room, product });
+//   };
+
+//   useEffect(() => {
+//     scrollToBottom(); // Scroll to bottom when messages update
+//   }, [sharedProduct, messages]);
+
+//   const contactName = selectedContact ? selectedContact.name : "";
+
+//   return (
+//     <div className={styles["chat-container"]}>
+//       <div className={styles["chat-header"]}>
+//         <img
+//           src={defaultAvatar}
+//           alt={contactName}
+//           className={styles["profile-pic"]}
+//         />
+//         <h2>{contactName}</h2>
+//         <span className={styles["edit-icon"]}>
+//           <img
+//             className={styles["streak-icon"]}
+//             src={streakIconImg}
+//             alt="Streak"
+//           />
+//         </span>
+//         <span className={styles["chat-notifications"]}>{streakCount}</span>
+//       </div>
+//       <div className={styles["chat-body"]} ref={chatBodyRef}>
+//         <div className={styles["date"]}>Yesterday</div>
+//         {/*  */}
+//         ME
+//         <div className={styles["streak-product-card"]}>
+//           <div className="product-card">
+//             <img
+//               src="http://localhost:8080/assets/product1.jpg"
+//               className="product-image"
+//               alt="Product"
+//             />
+//             <div className="product-info">
+//               <div className="rating">
+//                 <span>4.0</span>
+//                 <FaStar />
+//                 <span>| 9.0k</span>
+//               </div>
+//               <h3 className="product-title">Roadster</h3>
+//               <p className="product-description">Women Cargo Track Pants</p>
+//               <div className="product-pricing">
+//                 <span className="current-price">Rs. 781</span>
+//                 <span className="original-price">Rs. 2499</span>
+//                 <span className="discount">(66% OFF)</span>
+//               </div>
+//             </div>
+//           </div>
+//           <div className={styles["streak-count"]}>
+//             <img src={streakIconImg} alt="Streak" />
+//             <span>98</span>
+//           </div>
+//         </div>
+//         JOHN DOE
+//         <div className={styles["streak-product-card"]}>
+//           <div className="product-card">
+//             <img
+//               src="http://localhost:8080/assets/product2.jpg"
+//               className="product-image"
+//               alt="Product"
+//             />
+//             <div className="product-info">
+//               <div className="rating">
+//                 <span>3.9</span>
+//                 <FaStar />
+//                 <span>| 2.8k</span>
+//               </div>
+//               <h3 className="product-title">Tokyo Talkies</h3>
+//               <p className="product-description">Floral A-Line Midi Dress</p>
+//               <div className="product-pricing">
+//                 <span className="current-price">Rs. 649</span>
+//                 <span className="original-price">Rs. 1499</span>
+//                 <span className="discount">(50% OFF)</span>
+//               </div>
+//             </div>
+//           </div>
+//           <div className={styles["streak-count"]}>
+//             <img src={streakIconImg} alt="Streak" />
+//             <span>98</span>
+//           </div>
+//         </div>
+//         <div className={styles["date"]}>Today</div>
+//         ME
+//         <div className={styles["streak-product-card"]}>
+//           <div className="product-card">
+//             <img src={productSource} className="product-image" alt="Product" />
+//             <div className="product-info">
+//               <div className="rating">
+//                 <span>4.4</span>
+//                 <FaStar />
+//                 <span>| 5.3k</span>
+//               </div>
+//               <h3 className="product-title">Kook N Keech</h3>
+//               <p className="product-description">Typography Printed T-shirt</p>
+//               <div className="product-pricing">
+//                 <span className="current-price">Rs. 516</span>
+//                 <span className="original-price">Rs. 1099</span>
+//                 <span className="discount">(47% OFF)</span>
+//               </div>
+//             </div>
+//           </div>
+//           <div className={styles["streak-count"]}>
+//             <img src={streakIconImg} alt="Streak" />
+//             <span>99</span>
+//           </div>
+//         </div>
+//         {/* Render messages */}
+//         {messages.map((message, index) => (
+//           <div
+//             key={index}
+//             className={
+//               message.type === "text"
+//                 ? styles["message"]
+//                 : styles["image-message"]
+//             }
+//           >
+//             {message.type === "text" ? (
+//               <p>{message.content}</p>
+//             ) : message.type === "image" ? (
+//               <img src={message.content} alt="Received" />
+//             ) : message.type === "product" ? (
+//               <div className={styles["product-message"]}>
+//                 <img
+//                   src={message.content.image}
+//                   alt={message.content.title}
+//                   className={styles["product-image"]}
+//                 />
+//                 <div className={styles["product-info"]}>
+//                   <h3>{message.content.title}</h3>
+//                   <p>{message.content.description}</p>
+//                   <div className={styles["product-price"]}>
+//                     <span>{message.content.price}</span>
+//                   </div>
+//                 </div>
+//               </div>
+//             ) : null}
+//           </div>
+//         ))}
+//       </div>
+//       <div className={styles["chat-input"]}>
+//         <input
+//           type="text"
+//           value={input}
+//           onChange={(e) => setInput(e.target.value)}
+//           placeholder="Type a message..."
+//         />
+//         <button onClick={sendMessage}>Send</button>
+//       </div>
+//       <audio ref={audioRef} src={messageSound} />
+//       {showRewardGif && (
+//         <div className={styles["reward-gif-container"]}>
+//           <img src={rewardGif} alt="New Reward Earned" />
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ChatComponent;
