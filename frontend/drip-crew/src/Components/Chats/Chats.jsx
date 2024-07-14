@@ -101,6 +101,7 @@ import BdayComponent from "../BdayComponent/BdayComponent";
 import videoSource from "../../assets/cake.gif";
 import streakIconImg from "../../assets/lightning-icon.svg";
 import tickImg from "../../assets/verifiedTick.svg";
+import rewardCoin from "../../assets/rewardCoin.jpg";
 
 const Chats = ({ onSelectContact }) => {
   const navigate = useNavigate();
@@ -137,8 +138,9 @@ const Chats = ({ onSelectContact }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <img src={AddFriendIcon} alt="Add Friend Icon" />
+        <img src={AddFriendIcon} alt="Add Friend Icon" className={styles["drip-crew"]}/>
         <div className={styles.title}>Drip Crew</div>
+        <img src={rewardCoin} className={styles["reward-coin"]} />
       </div>
       <div className={styles.contacts}>
         {users.map((user) => (
