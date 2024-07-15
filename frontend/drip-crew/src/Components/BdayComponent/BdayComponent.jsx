@@ -1,6 +1,6 @@
 import React from "react";
 import { FaBirthdayCake } from "react-icons/fa";
-import styles from "./BdayComponent.module.css"; // Assuming you create a corresponding CSS file
+import styles from "./BdayComponent.module.css";
 import imageSource from "../../assets/avatar.svg";
 import { IoHeartOutline } from "react-icons/io5";
 import cakeImg from "../../assets/cake.gif";

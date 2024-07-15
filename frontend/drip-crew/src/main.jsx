@@ -13,10 +13,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    //  children:[
-    //   {path:"/",element:<Home/> /*,loader:postLoader*/},
-    //   {path:"/bag",element:<Bag></Bag>/*,action:createPostAction*/},
-    //  ],
   },
 
   {
@@ -37,9 +33,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-    
-   <ShareProvider>
+
+  <ShareProvider>
     <RouterProvider router={router}></RouterProvider>
-   </ShareProvider>
+  </ShareProvider>
   //  </React.StrictMode>
 );

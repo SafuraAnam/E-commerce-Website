@@ -1,24 +1,3 @@
-/* .profile-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .profile-header {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    background-color: white;
-    z-index: 1000;
-  }
-   */
-
-/* StyleIconProfile.css */
 .profile-container {
   width: 100%;
   background-color: #fff;

@@ -96,7 +96,7 @@ const products = [
     currentPrice: 649,
     originalPrice: 1499,
     discount: "50% OFF",
-  },  
+  },
   {
     image: "http://localhost:8080/assets/productImage.jpg",
     rating: 4.4,

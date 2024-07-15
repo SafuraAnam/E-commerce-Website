@@ -74,12 +74,6 @@
 }
 
 .chat-notifications {
-  /* background-color: red; */
-  /* color: white;
-  border-radius: 50%;
-  padding: 2px 8px;
-  font-size: 0.8rem;
-  margin-left: 10px; */
   margin-bottom: 30px;
   color: red;
 }
@@ -114,8 +108,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Ensure it appears above other elements */
-  pointer-events: none; /* Prevent interaction */
+  z-index: 1000;
+  pointer-events: none;
 }
 
 .reward-gif-container img {

@@ -1,11 +1,10 @@
-// Footer.jsx
 import React from "react";
 
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
-import googlePlay from "../assets/google_play.png"; // Update with the actual path to your image
-import appStore from "../assets/apple_store.png"; // Update with the actual path to your image
-import originalIcon from "../assets/original.png"; // Update with the actual path to your image
-import returnIcon from "../assets/Return.png"; // Update with the actual path to your image
+import googlePlay from "../assets/google_play.png";
+import appStore from "../assets/apple_store.png";
+import originalIcon from "../assets/original.png";
+import returnIcon from "../assets/Return.png";
 
 const Footer = () => {
   return (

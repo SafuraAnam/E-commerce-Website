@@ -20,30 +20,6 @@ const Header = () => {
                 SELECT <span className="insider-highlight">INSIDER</span>
               </span>
             </div>
-            {/* <div className="dropdown show">
-              <a
-                className="btn btn-secondary dropdown-toggle"
-                href="#"
-                role="button"
-                id="dropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                fwd
-              </a> */}
-
-            {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a className="dropdown-item" href="#">
-                  Myntra
-                </a>
-                <a className="dropdown-item" href="#">
-                  fwd
-                </a>
-                <a className="dropdown-item" href="#">
-                  Luxe
-                </a>
-              </div> */}
           </div>
           <div className="search-bar">
             <FaSearch className="search-icon" />

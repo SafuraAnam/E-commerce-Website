@@ -8,7 +8,6 @@ import SideBar from "../Components/SideBar";
 import { FaPersonWalkingDashedLineArrowRight } from "react-icons/fa6";
 import Footer from "../Components/Footer";
 const StyleIcon = () => {
-  // const [styleIcon, setStyleIcon] = useState(null);
   const styleIcon = {
     profileImage: "../../assets/styleIconProfileImg.jpg",
     name: "Kiara Advani",
@@ -32,18 +31,6 @@ const StyleIcon = () => {
       },
     ],
   };
-
-  // useEffect(() => {
-  //   // Fetch data for a single style icon profile
-  //   axios.get('/styleIcon')
-  //     .then(response => {
-  //       console.log(response.data)
-  //       setStyleIcon(response.data); // Assuming response.data is a single style icon object
-  //     })
-  //     .catch(error => {
-  //       console.error('There was an error fetching the style icon!', error);
-  //     });
-  // }, []);
 
   return (
     <>

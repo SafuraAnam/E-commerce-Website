@@ -18,7 +18,6 @@ const SideBar = () => {
       <div className="sidebar">
         <div className="sidebar-option" onClick={() => handleRedirect("/")}>
           <img src={productSource2} size={24} />
-          {/* <GiClothes size={24} /> */}
           <span>fwd</span>
         </div>
         <div className="sidebar-option">
@@ -33,7 +32,6 @@ const SideBar = () => {
           }}
         >
           <img src={productSource} size={24} />
-          {/* <FaUsers size={24} /> */}
           <span>DripCrew</span>
         </div>
 

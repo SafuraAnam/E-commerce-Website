@@ -37,33 +37,6 @@ const StyleIconProfile = ({ icon }) => {
           <h3>Recommended Products</h3>
         </div>
       </div>
-      {/* <div className={styles['profile-content']}>
-        <div className={styles['posts-section']}>
-          <h3>Posts</h3>
-          <div className={styles['post']}>
-           
-            <img src={productImage} alt={icon.posts[0].title} />
-             <p className={styles['price']}>
-              <span className={styles['new-price']}>₹{icon.posts[0].newPrice}</span>
-              <span className={styles['old-price']}>₹{icon.posts[0].oldPrice}</span>
-              <span className={styles['discount']}>{icon.posts[0].discount}% OFF</span>
-            </p> 
-          </div>
-        </div>
-        <div className={styles['recommended-section']}>
-          <h3>Recommended Products</h3>
-          <div className={styles['recommended']}>
-           
-            <img src={productImage} alt={icon.posts[0].title} /> 
-
-            <p className={styles['price']}>
-              <span className={styles['new-price']}>₹{icon.recommended[0].newPrice}</span>
-              <span className={styles['old-price']}>₹{icon.recommended[0].oldPrice}</span>
-              <span className={styles['discount']}>{icon.recommended[0].discount}% OFF</span>
-            </p>
-          </div>
-        </div>
-      </div> */}
       <Product />
     </div>
   );

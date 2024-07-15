@@ -20,7 +20,6 @@ const SideBar2 = () => {
       <div className="sidebar2">
         <div className="sidebar2-option" onClick={() => handleRedirect("/")}>
           <img src={productSource2} size={24} />
-          {/* <GiClothes size={24} /> */}
           <span>fwd</span>
         </div>
         <div className="sidebar2-option">
@@ -36,7 +35,6 @@ const SideBar2 = () => {
         >
           <div className="">
             <img src={productSource3} size={24} />
-            {/* <FaUsers size={24} /> */}
             <span>Streak</span>
           </div>
           <div className="new">NEW</div>
